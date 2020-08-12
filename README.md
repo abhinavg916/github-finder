@@ -40,10 +40,25 @@
 "test": "react-scripts test",       // For tests
 "eject": "react-scripts eject"      // To eject from certain script operations
 ```
+* `public/index.html` is the root HTML for output of components
+* `src/index.js` renders the components
+* `src/App.js` is the main component for `pubic/index.html`
+* `src/App.css` is global CSS for components
+* `serviceWorkder.js` is used for PWA (Progressive Web Apps)
 
 ## Basics
 * React is SPA (Single Page Application) framework/library which means everything is routed through a single file and which is `public/index.html`
-*
+* Components can be function or class like function App() in src/App.js
+* Each component has `return ()` which contains JSX code
+
+## Cleanup
+* Delete src/serviceWorker.js
+* Delete src/logo.svg
+* Delete src/index.js
+* Delete src/App.test
+* Delete declarations and references of from rest of the files
+
+## 
 
 
 

@@ -1,5 +1,5 @@
 # ReactJs Notes
-![Cover](https://miro.medium.com/proxy/1*VeM-5lsAtrrJ4jXH96h5kg.png)
+![Cover](https://i2.wp.com/regroove.ca/wp-content/uploads/2018/07/react-redux-2.png?fit=1024%2C576&ssl=1)
 
 ## Topics Covered
 

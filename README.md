@@ -6,13 +6,16 @@
 * React Hooks
 * Redux
 
-# Prerequisite
+## Prerequisite
 * HTML
 * CSS 
 * JavaScript
+
 ## What is ReactJs?
+* 
 
 ## Why ReactJs?
+*
 
 ## Installation/Steps:
 * Install NodeJs

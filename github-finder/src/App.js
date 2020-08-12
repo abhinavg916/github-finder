@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Navbar from './components/layout/Navbar';
+import UserItem from './components/users/UserItem';
 import "./App.css";
 
 // INTRODUCTION TO COMPONENTS AND JSX
@@ -154,6 +155,21 @@ import "./App.css";
 //     );
 //   }
 // }
+
+
+
+// COMPONENT STATE
+class App extends Component {
+  render() {
+    return (
+        <div className="App">
+          <Navbar />
+          <UserItem />
+        </div>
+    );
+  }
+}
+
 
 export default App;
 

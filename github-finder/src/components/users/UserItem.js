@@ -7,7 +7,7 @@ class UserItem extends Component {
         // constructor() {
         //     super();
         //     this.state = {
-        //         id: 'id',
+        //         id: 1,
         //         login: 'mojombo',
         //         avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
         //         html_url: "https://github.com/mojombo"
@@ -15,12 +15,12 @@ class UserItem extends Component {
         // }
 
         // Using state keyword
-        state = {
-            id: 'id',
-            login: 'mojombo',
-            avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
-            html_url: "https://github.com/mojombo"
-        }
+        // state = {
+        //     id: 1,
+        //     login: 'mojombo',
+        //     avatar_url: 'https://avatars0.githubusercontent.com/u/1?v=4',
+        //     html_url: "https://github.com/mojombo"
+        // };
     
     // render() {
     //     return (
@@ -37,7 +37,8 @@ class UserItem extends Component {
     // Destructuring - To avoid repeatitive use of this.state and makes code neater
     render() {
 
-        const { login, avatar_url, html_url } = this.state;     // { } pulls data out of the object 
+        // const { login, avatar_url, html_url } = this.state;     // { } pulls data out of the object 
+        const { login, avatar_url, html_url } = this.props.users;   // Props coming from Users Component 
 
         return (
             <div className="card text-center">

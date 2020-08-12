@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import Navbar from './components/layout/Navbar';
 import UserItem from './components/users/UserItem';
 import "./App.css";
+import Users from "./components/users/Users";
 
 // INTRODUCTION TO COMPONENTS AND JSX
   // Functional Component
@@ -159,16 +160,32 @@ import "./App.css";
 
 
 // COMPONENT STATE
+// class App extends Component {
+//   render() {
+//     return (
+//         <div className="App">
+//           <Navbar />
+//           <UserItem />
+//         </div>
+//     );
+//   }
+// }
+
+
+
+// LIST & PASSING STATE WITH PROPS
 class App extends Component {
-  render() {
-    return (
-        <div className="App">
-          <Navbar />
-          <UserItem />
-        </div>
-    );
+    render() {
+      return (
+          <div className="App">
+            <Navbar />
+            <UserItem />
+            <Users />/
+          </div>
+      );
+    }
   }
-}
+
 
 
 export default App;

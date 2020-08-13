@@ -29,7 +29,7 @@ import PropTypes from 'prop-types';             // Proptypes Library
 // export default Navbar;
 
 
-// Stateless Function Component
+// Stateless Functional Component
 // Using Arrow Functions then no need of render()
 // this keyword is not required because now it is not a class and props are sent as arguement in the function
 // const Navbar = (props) => {

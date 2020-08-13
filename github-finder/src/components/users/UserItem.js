@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';  
 
 // class UserItem extends Component {
 
@@ -74,6 +75,10 @@ const UserItem = ({user: {login, avatar_url, html_url}}) => {       // Destructu
                 </div>
             </div>
         );
-}
+};
+
+UserItem.propTypes = {      // Proptypes
+    user: PropTypes.object.isRequired,  // Shortcut: ptor
+};
 
 export default UserItem;

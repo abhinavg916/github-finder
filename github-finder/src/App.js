@@ -219,10 +219,11 @@ class App extends Component {
   };
 
   async componentDidMount() {    
-    //  componentDidMount() is one of the lifecycle method and runs when component is mounted
+    // componentDidMount() is one of the lifecycle method and runs when component is mounted
     // axios.get('https://api.github.com/users').then(res => console.log(res.data));       // Axios deals with Promises   
     this.setState({ loading: true });     // .setState() is used to change of value in a state of a class based component
-    const res = await axios.get('https://api.github.com/users');
+    // console.log(process.env.REACT_APP_GITHUB_CLIENT_SECRET);
+    const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}%client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
     // console.log(res.data);
     this.setState({users: res.data, loading: false});   // After getting the data from API
   }

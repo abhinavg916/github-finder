@@ -219,34 +219,61 @@ class App extends Component {
     loading: false
   };
 
-  async componentDidMount() {    
-    // componentDidMount() is one of the lifecycle method and runs when component is mounted
-    // axios.get('https://api.github.com/users').then(res => console.log(res.data));       // Axios deals with Promises   
-    this.setState({ loading: true });     // .setState() is used to change of value in a state of a class based component
-    // console.log(process.env.REACT_APP_GITHUB_CLIENT_SECRET);
-    const res = await axios.get('https://api.github.com/users');
-    // const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}%client_secret=$
-    // {process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);    // Environment Variables
-    // console.log(res.data);
-    this.setState({users: res.data, loading: false});   // After getting the data from API
-  }
-
-  render() {
-    return (
-        <div className="App">
-          <Navbar />
-          <div className="container">
-            <Search />
-            <Users loading={this.state.loading} users={this.state.users} />
-          </div>
-        </div>
-    );
-  }
-}
+  // async componentDidMount() {    
+  //   // componentDidMount() is one of the lifecycle method and runs when component is mounted
+  //   // axios.get('https://api.github.com/users').then(res => console.log(res.data));       // Axios deals with Promises   
+  //   this.setState({ loading: true });     // .setState() is used to change of value in a state of a class based component
+  //   // console.log(process.env.REACT_APP_GITHUB_CLIENT_SECRET);
+  //   // const res = await axios.get('https://api.github.com/users');
+  //   const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);    // Environment Variables
+  //   // console.log(res.data);
+  //   this.setState({users: res.data, loading: false});   // After getting the data from API
+  // }
 
 
 
 // EVENTS & SEARCH COMPONENTS
+  // Adding Search Bar & Search GitHub Users
+//   searchUsers = async (text) => {
+//     this.setState({ loading: true });
+//     const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);    // Environment Variables
+//     this.setState({users: res.data.items, loading: false}); 
+//   }
+
+//   render() {
+//     return (
+//         <div className="App">
+//           <Navbar />
+//           <div className="container">
+//             <Search searchUsers={this.searchUsers}/>    {/* Flow of Prop: Search.js -> App.js i.e. Reversed*/}
+//             <Users loading={this.state.loading} users={this.state.users} />
+//           </div>
+//         </div>
+//     );
+//   }
+// }
+
+
+
+// CLEAR USERS FROM STATE
+searchUsers = async (text) => {
+  this.setState({ loading: true });
+  const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);    // Environment Variables
+  this.setState({users: res.data.items, loading: false}); 
+}
+
+render() {
+  return (
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <Search searchUsers={this.searchUsers}/>    {/* Flow of Prop: Search.js -> App.js i.e. Reversed*/}
+          <Users loading={this.state.loading} users={this.state.users} />
+        </div>
+      </div>
+  );
+}
+}
 
 
 export default App;

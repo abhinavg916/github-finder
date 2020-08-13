@@ -28,7 +28,7 @@ class Users extends Component {
 
     render() {
         return (
-            <div>
+            <div stlye={userStyle}>
                 {this.state.users.map(user => (
                     // <div key={user.id}> {user.login}</div>  // Key is must for each child in the list due to map()
                     <UserItem key={user.id} user={user} />  // Props are send to UserItem Component
@@ -36,6 +36,12 @@ class Users extends Component {
             </div>
         );
     }
+}
+
+const userStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '1rem'
 }
 
 export default Users;

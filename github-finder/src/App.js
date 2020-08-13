@@ -174,18 +174,38 @@ import Users from "./components/users/Users";
 
 
 // LIST & PASSING STATE WITH PROPS
+// class App extends Component {
+//     render() {
+//       return (
+//           <div className="App">
+//             <Navbar />
+//             <div className="container">
+//               <Users />/
+//             </div>
+//           </div>
+//       );
+//     }
+//   }
+
+
+
+// STATELESS FUNCTIONAL COMPONENTS
+// Before Hooks, Functional Components were used for stateless components (have no state in them)
+// Eg: UserItem and Navbar
+// Hence, there's no reason for functional components to be a class
+// Converting UserItem and Navbar into functional components
 class App extends Component {
-    render() {
-      return (
-          <div className="App">
-            <Navbar />
-            <UserItem />
+  render() {
+    return (
+        <div className="App">
+          <Navbar />
+          <div className="container">
             <Users />/
           </div>
-      );
-    }
+        </div>
+    );
   }
-
+}
 
 
 export default App;

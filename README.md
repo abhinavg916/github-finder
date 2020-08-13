@@ -60,7 +60,7 @@
 
 ## 
 
-
+`npm install axios`
 
 # Author
 * Name - Abhinav

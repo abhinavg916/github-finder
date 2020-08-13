@@ -64,8 +64,26 @@ import PropTypes from 'prop-types';
             //  }
 // Method 2: Using Arrow Functions then no need of render()
 // const UserItem = (props) => {
-const UserItem = ({user: {login, avatar_url, html_url}}) => {       // Destructuring
-        // const { login, avatar_url, html_url } = props.user; // this keyword is not required because now it is not a class and props are sent as arguement in the function
+// const UserItem = ({user: {login, avatar_url, html_url}}) => {       // Destructuring
+//         // const { login, avatar_url, html_url } = props.user; // this keyword is not required because now it is not a class and props are sent as arguement in the function
+//         return (
+//             <div className="card text-center">
+//                 <img src = {avatar_url} alt="" className="round-img" style={{width: '60px'}} /> {/* this.state is used to access the state data*/}
+//                 <h3>{login}</h3>
+//                 <div>
+//                     <a href={html_url} classaName="btn btn-dark btn-sm my-1">More</a>
+//                 </div>
+//             </div>
+//         );
+// };
+
+// UserItem.propTypes = {      // Proptypes
+//     user: PropTypes.object.isRequired,  // Shortcut: ptor
+// };
+
+
+// HTTP REQUESTS & UPDATING STATE
+const UserItem = ({user: {login, avatar_url, html_url}}) => {
         return (
             <div className="card text-center">
                 <img src = {avatar_url} alt="" className="round-img" style={{width: '60px'}} /> {/* this.state is used to access the state data*/}
@@ -77,8 +95,8 @@ const UserItem = ({user: {login, avatar_url, html_url}}) => {       // Destructu
         );
 };
 
-UserItem.propTypes = {      // Proptypes
-    user: PropTypes.object.isRequired,  // Shortcut: ptor
+UserItem.propTypes = {
+    user: PropTypes.object.isRequired,
 };
 
 export default UserItem;

@@ -33,18 +33,38 @@ import PropTypes from 'prop-types';             // Proptypes Library
 // Using Arrow Functions then no need of render()
 // this keyword is not required because now it is not a class and props are sent as arguement in the function
 // const Navbar = (props) => {
-const Navbar = ({icon, title}) => {     // Destructuring
+// const Navbar = ({icon, title}) => {     // Destructuring
+//     return (
+//         <nav className="navbar bg-primary">
+//             <h1><i class="fab fa-github" /> Navbar</h1>
+//                 {/* <h1><i class={props.icon} /> {props.title}</h1> */}
+//                 <h1><i class={icon} /> {title}</h1>
+//         </nav>
+//     );
+
+// }
+
+// Navbar.defaultProps = {            // ComponentName.PropsName for Props
+//     title: 'GitHub Finder',
+//     icon: 'fab fa-github'
+// };
+
+// Navbar.propTypes = {    
+//     title: PropTypes.string.isRequired,
+//     icon: PropTypes.string.isRequired
+// };
+
+
+// HTTP REQUESTS & UPDATING STATE
+const Navbar = ({icon, title}) => {  
     return (
         <nav className="navbar bg-primary">
-            <h1><i class="fab fa-github" /> Navbar</h1>
-                {/* <h1><i class={props.icon} /> {props.title}</h1> */}
                 <h1><i class={icon} /> {title}</h1>
         </nav>
     );
-
 }
 
-Navbar.defaultProps = {            // ComponentName.PropsName for Props
+Navbar.defaultProps = {          
     title: 'GitHub Finder',
     icon: 'fab fa-github'
 };

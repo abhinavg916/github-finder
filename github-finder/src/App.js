@@ -3,6 +3,7 @@ import Navbar from './components/layout/Navbar';
 import UserItem from './components/users/UserItem';
 import "./App.css";
 import Users from "./components/users/Users";
+import axios from 'axios';
 
 // INTRODUCTION TO COMPONENTS AND JSX
   // Functional Component
@@ -194,19 +195,49 @@ import Users from "./components/users/Users";
 // Eg: UserItem and Navbar
 // Hence, there's no reason for functional components to be a class
 // Converting UserItem and Navbar into functional components
+// class App extends Component {
+//   render() {
+//     return (
+//         <div className="App">
+//           <Navbar />
+//           <div className="container">
+//             <Users />/
+//           </div>
+//         </div>
+//     );
+//   }
+// }
+
+
+
+// HTTP REQUESTS & UPDATING STATE
 class App extends Component {
+
+  state = {
+    users: [],
+    loading: false
+  };
+
+  async componentDidMount() {    
+    //  componentDidMount() is one of the lifecycle method and runs when component is mounted
+    // axios.get('https://api.github.com/users').then(res => console.log(res.data));       // Axios deals with Promises   
+    this.setState({ loading: true });     // .setState() is used to change of value in a state of a class based component
+    const res = await axios.get('https://api.github.com/users');
+    // console.log(res.data);
+    this.setState({users: res.data, loading: false});   // After getting the data from API
+  }
+
   render() {
     return (
         <div className="App">
           <Navbar />
           <div className="container">
-            <Users />/
+            <Users loading={this.state.loading} users={this.state.users} />
           </div>
         </div>
     );
   }
 }
-
 
 export default App;
 

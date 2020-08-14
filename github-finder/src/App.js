@@ -5,6 +5,8 @@ import "./App.css";
 import Users from "./components/users/Users";
 import axios from 'axios';
 import Search from './components/users/Search';
+import Alert from './components/layout/Alert';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // INTRODUCTION TO COMPONENTS AND JSX
   // Functional Component
@@ -212,12 +214,13 @@ import Search from './components/users/Search';
 
 
 // HTTP REQUESTS & UPDATING STATE
-class App extends Component {
+// class App extends Component {
 
-  state = {
-    users: [],
-    loading: false
-  };
+//   state = {
+//     users: [],
+//     loading: false,
+//     alert: null
+//   };
 
   // async componentDidMount() {    
   //   // componentDidMount() is one of the lifecycle method and runs when component is mounted
@@ -256,26 +259,107 @@ class App extends Component {
 
 
 // CLEAR USERS FROM STATE
-searchUsers = async (text) => {
-  this.setState({ loading: true });
-  const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);    // Environment Variables
-  this.setState({users: res.data.items, loading: false}); 
-}
+// searchUsers = async (text) => {
+//   this.setState({ loading: true });
+//   const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);    // Environment Variables
+//   this.setState({users: res.data.items, loading: false}); 
+// }
 
-render() {
-  return (
-      <div className="App">
-        <Navbar />
-        <div className="container">
-          <Search searchUsers={this.searchUsers}/>    {/* Flow of Prop: Search.js -> App.js i.e. Reversed*/}
-          <Users loading={this.state.loading} users={this.state.users} />
+// clearUsers = () => this.setState({ users: [], loading: false });
+
+// render() {
+//   const { users, loading } = this.state;
+//   return (
+//       <div className="App">
+//         <Navbar />
+//         <div className="container">
+//           <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} showClear={users.length>0 ? true: false }/>
+//           <Users loading={this.state.loading} users={users} />
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+
+
+// ALERT FOR NOT ENTERING IN SEARCH BAR, STATE & COMPONENT
+// searchUsers = async (text) => {
+//   this.setState({ loading: true });
+//   const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);    // Environment Variables
+//   this.setState({users: res.data.items, loading: false}); 
+// }
+
+// clearUsers = () => this.setState({ users: [], loading: false });
+
+// setAlert = (msg, type) => {
+//   this.setState({alert: { msg, type}});
+//   setTimeout(() => this.setState({ alert: null}), 5000)
+// } 
+
+// render() {
+//   const { users, loading } = this.state;
+//   return (
+//       <div className="App">
+//         <Navbar />
+//         <div className="container">
+//           <Alert alert={this.state.alert} />
+//           <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} showClear={users.length>0 ? true: false } setAlert={this.setAlert}/>
+//           <Users loading={this.state.loading} users={users} />
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+
+
+// REACT ROUTER FOR GITHUB PROFILES
+// Stop the server and Install: npm i react-router-dom
+// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+class App extends Component {
+
+  state = {
+    users: [],
+    loading: false,
+    alert: null
+  };
+
+  searchUsers = async (text) => {
+    this.setState({ loading: true });
+    const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);    // Environment Variables
+    this.setState({users: res.data.items, loading: false}); 
+  }
+
+  clearUsers = () => this.setState({ users: [], loading: false });
+
+  setAlert = (msg, type) => {
+    this.setState({alert: { msg, type}});
+    setTimeout(() => this.setState({ alert: null}), 5000)
+  } 
+
+  render() {
+    const { users, loading } = this.state;
+    return (
+      // Should be wrapped in Router
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Alert alert={this.state.alert} />
+            <Switch>
+              <Route exact path="/" render={props => (
+                <Fragment>
+                    <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} showClear={users.length>0 ? true: false } setAlert={this.setAlert}/>
+            <Users loading={this.state.loading} users={users} />
+                </Fragment>
+              )} />
+            </Switch>
+          </div>
         </div>
-      </div>
-  );
-}
-}
-
+        </Router>
+      );
+    }
+  }
 
 export default App;
-
-

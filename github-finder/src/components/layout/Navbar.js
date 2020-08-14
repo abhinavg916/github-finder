@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react';       
 import PropTypes from 'prop-types';             // Proptypes Library
+import { Link } from 'react-router-dom';        // {} are used for components which does not support default export
 
 // class Navbar extends Component {
     
@@ -60,6 +61,23 @@ const Navbar = ({icon, title}) => {
     return (
         <nav className="navbar bg-primary">
                 <h1><i class={icon} /> {title}</h1>
+                {/* The below code strategy is avoided due to <a> tag because it clears the state upon clicking. Thus, on going back, the data on website is not shown. */}
+                {/* <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                </ul> */}
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link> {/* Maintains the state*/}
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                </ul>
         </nav>
     );
 }

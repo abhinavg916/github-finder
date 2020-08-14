@@ -7,6 +7,7 @@ import axios from 'axios';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import About from './components/pages/About';
 
 // INTRODUCTION TO COMPONENTS AND JSX
   // Functional Component
@@ -354,6 +355,7 @@ class App extends Component {
             <Users loading={this.state.loading} users={users} />
                 </Fragment>
               )} />
+              <Route exact path='/about' component={About} />
             </Switch>
           </div>
         </div>

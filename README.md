@@ -3,8 +3,155 @@
 
 ## Topics Covered
 * React Fundamentals
+   * Introduction
+   * Hello World
+   * Folder Structure
+   * Components
+   * Functional Components
+   * Class Components
+   * Hooks Update
+   * JSX
+   * Props
+   * State
+   * useState
+   * Destructuring Props & State
+   * Event Handling
+   * Binding Event Handlers
+   * Methods as Props
+   * Conditional Rendering
+   * List Rendering
+   * Lists and Keys
+   * Index as Key Anti-pattern
+   * Styling and CSS Bascics
+   * Basics of Form Handling
+   * Component Lifecycle Methods
+   * Component Mounting Lifecycle Methods
+* React Advanced
+   * Fragments
+   * Pure Components
+   * Memo
+   * Refs
+   * Refs with Class Components
+   * Forwarding Refs
+   * Portals
+   * Error Boundary
+   * Higher Order Components
+   * Render Props
+   * Context
+   * HTTP and React
+   * HTTP GET Request
+   * HTTP POST Request
 * React Hooks
-* Redux
+   * Introduction
+   * useState Hook
+   * useState with Previous State
+   * useState with Object
+   * useState with Array
+   * useState with Hook
+   * useEffect Hook
+   * Conditionally Run Effects
+   * Run effects only once
+   * useEffect with Cleanup
+   * useEffect with Incorrect Dependency
+   * Fetching Data with useEffect
+   * useContext Hook
+   * useReducer Hook
+   * useReducer Hook (Simple State & Action)
+   * useReducer Hook (Complex State & Action)
+   * Multiple useReducers
+   * useReducer with useContext
+   * Fetching Data with useReducer
+   * useState vs useReducer
+   * useCallback Hook
+   * useMemo Hook
+   * useRef Hook
+   * Custom Hooks
+   * useDocumentTitle Custom Hook
+   * useCounter Custom Hook
+   * useInput Custom Hook
+* React Redux
+   * Introduction
+   * Getting Started
+   * Three Core Concepts
+   * Three Principles
+   * Actions
+   * Reducers
+   * Store
+   * Multiple Reducers
+   * Combine Reducers
+   * Middleware
+   * Async Actions
+   * Reduc Thunk Middleware
+   * React Redux Setup
+   * Actions
+   * Reducers
+   * Store
+   * Connect
+   * React Redux with Hooks
+   * useSelector Hook
+   * useDispatch Hook
+   * Logger Middleware
+   * Redux DevTool Extension
+   * Action Payload
+   * mapStateToProps
+   * mapDispatchToProps
+   * Async Actions
+   * Redux Thunk Get Request
+* Practical React
+   * Introduction
+   * Icons
+   * Toast Notifications
+   * Modal
+   * Tooltip
+   * CountUp
+   * Idle Timer
+   * Color Picker
+   * Credit Cards
+   * Date Picker
+   * Presentation (MDX) Deck
+   * Video Player
+   * Loading Indicators
+   * Charts
+* React Formik (Small Library to handle forms)
+   * Introduction
+   * Simple Form
+   * useFormik Hook
+   * Managing From State
+   * Handling From Submission
+   * Form Validation
+   * Validation Function
+   * Displaying Error Messages
+   * Visite Fields
+   * Improving validation UX
+   * Schema validation with Yup
+   * Reducing boilerplate
+   * Formik Component
+   * Field Component
+   * ErrorMessage Component
+   * Nested Objects
+   * Arrays
+   * FieldArray Component
+   * FastField Component
+   * Field Level Validation
+   * Manually Trigering Validation
+   * Disabling Submit
+   * Load Saved Data
+   * Reset Form Data
+   * Building Reusable Formik Controls
+   * FormikControl Component
+   * Input
+   * Textarea
+   * Select
+   * Radio Buttons
+   * Checkbox Group
+   * Date Picker
+   * Login Form
+   * Registration Form
+   * Wiring up a UI Library
+   * ChakraInput
+   * Wrapping Up
+* Jest - Testing (Optional)
+
 
 ## Prerequisite
 * HTML
